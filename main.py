@@ -1,22 +1,35 @@
 import asyncio
 import logging
+import os
 import sys
-from os import getenv
 
-from aiogram import Bot, Dispatcher, html
+from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
+from dotenv import load_dotenv
 
-TOKEN = getenv("BOT_TOKEN")
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
+print(TOKEN)
 
 dp = Dispatcher()
+
+message_text = ("👋 Здравствуй! \n\n"
+                
+                "📆 С 12 июля по 4 августа 2024 года мы проводим конкурс. Победители получат возможность тестового "
+                "проживания в нашем доме на территории выставки Open Village24.\n\n"
+                
+                "🏡 Для участия в конкурсе достаточно подписаться на официальный telegram-канал компании. Результаты "
+                "будут опубликованы здесь.\n\n"
+                
+                "🌞 Прочувствуй загородную жизнь с DRHouse ")
 
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-    await message.answer(f"Hello, {html.bold(message.from_user.full_name)}!")
+    await message.answer(message_text)
 
 
 @dp.message()
