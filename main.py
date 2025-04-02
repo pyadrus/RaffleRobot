@@ -27,7 +27,7 @@ dp = Dispatcher()
 def menu_keyboard() -> InlineKeyboardMarkup:
     """Клавиатура главного меню"""
     rows = [
-        [InlineKeyboardButton(text='Перейти в канал', url='https://t.me/drhousecosystem')],
+        [InlineKeyboardButton(text='Перейти в канал', url='https://t.me/alpha_dom_vr')],
     ]
     main_menu_key = InlineKeyboardMarkup(inline_keyboard=rows)
     return main_menu_key
@@ -35,7 +35,7 @@ def menu_keyboard() -> InlineKeyboardMarkup:
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-    message_text = (f"Здравствуй {message.from_user.first_name} 🫶! \n\n"
+    message_text = (f"Здравствуй, {message.from_user.first_name} 🫶! \n\n"
 
                     "С 12 июля по 4 августа 2024 года мы проводим конкурс. Победители получат возможность тестового "
                     "проживания в нашем доме на территории выставки Open Village24.\n\n"
@@ -72,7 +72,7 @@ async def new_chat_member(message: types.Message):
     await message.delete()  # Удаляем системное сообщение о новом участнике группы
     logger.info(f'Пользователь: Имя  -  {message.from_user.first_name}  {message.from_user.last_name}  ')
 
-    message_text = (f"Здравствуй {message.from_user.first_name} 🫶! \n\n"
+    message_text = (f"Здравствуй, {message.from_user.first_name} 🫶! \n\n"
 
                     "С 12 июля по 4 августа 2024 года мы проводим конкурс. Победители получат возможность тестового "
                     "проживания в нашем доме на территории выставки Open Village24.\n\n"
